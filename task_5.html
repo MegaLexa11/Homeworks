@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+<script>
+    function sum(a, b) {
+        return a + b
+    }
+
+    function diff(a, b) {
+        return a - b
+    }
+
+    function mult(a, b) {
+        return a * b
+    }
+
+    function div(a, b) {
+        return a / b
+    }
+
+    function calc(a, b, action) {
+        switch (action) {
+            case '+':
+                return sum(a, b);
+            case '-':
+                return diff(a, b);
+            case '*':
+                return mult(a, b);
+            case '/':
+                return div(a, b);
+        }
+    }
+
+    let num1 = parseInt(prompt('Введите первое число:'))
+    let num2 = parseInt(prompt('Введите второе число:'))
+    let toDo = prompt('Введите действие (+, -, *, /):')
+
+    alert(calc(num1, num2, toDo))
+</script>
