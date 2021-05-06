@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<script>
+    function recurDegree(num, deg) {
+        if (deg === 0) {
+            return 1
+        } else if (deg === 1) {
+            return num
+        } else {
+            return num * recurDegree(num, deg - 1)
+        }
+    }
+
+    let number = parseInt(prompt('Введите число для возведения в степень:'))
+    let degree = parseInt(prompt('Введите степень числа:'))
+
+    alert(recurDegree(number, degree))
+</script>
