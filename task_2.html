@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<script>
+    var basket = [['фен', 2000, 1], ['Карта памяти', 1000, 3], ['Монитор', 10000, 1]];
+
+    function addProduct(name, price, amount) {
+        basket.push([name, price, amount])
+    };
+
+    function countBasketPrice(whereToCount) {
+        var fullPrice = 0;
+        for (el of whereToCount) {
+            itemPrice = el[1] * el[2];
+            fullPrice += itemPrice
+        };
+        return fullPrice
+    }
+
+    alert(`Общая стоимость: ${countBasketPrice(basket)}`)
+</script>
