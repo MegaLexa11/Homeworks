@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<script>
+    const basket = {
+        owner: 'Alex',
+        products: [],
+
+        putProduct(item, amount = 1) {
+            item.amount = amount;
+            this.products.push(item)
+        },
+
+        countPrice() {
+            var fullPrice = 0;
+            for (el of this.products) {
+                itemPrice = el.price * el.amount;
+                fullPrice += itemPrice
+            };
+            return fullPrice
+        }
+    };
+
+    function createProduct(name, price) {
+        const product = {
+            name: name,
+            price: price,
+        };
+
+        return product
+    };
+
+    product1 = createProduct('Монитор', 10000);
+    product2 = createProduct('Клавиатура', 2000);
+    basket.putProduct(product1);
+    basket.putProduct(product2, 3);
+
+    console.log(basket.countPrice())
+
+</script>
