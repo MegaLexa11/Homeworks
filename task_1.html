@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<script>
+    function numToObj(num) {
+        if (num > 999) {
+            console.log('Необходимо ввести число < 1000!')
+        }
+        else {
+            numObj = {
+                units: num % 10,
+                tens: Math.trunc(num / 10) % 10,
+                hundreds: Math.trunc(num / 100),
+            }
+
+            return numObj
+        };
+
+    };
+
+    let obj = numToObj(569);
+
+    console.log(obj)
+
+</script>
