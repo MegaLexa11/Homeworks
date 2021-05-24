@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function makeBoard() {
+            let oddOrEven = 1;
+            const whiteCell = "background-color: white; width:40px; height:40px; border: 1px solid black;";
+            const blackCell = "background-color: black; width:40px; height:40px; border: 1px solid black;";
+            const boardLetters = " ABCDEFGH";
+            let boardNumber = 1;
+
+            let board = document.createElement('table');
+            board.innerHTML = '';
+            board.style = "border-collapse: collapse";
+            document.body.appendChild(board);
+
+            for (let row = 0; row <= 8; row++) {
+
+                let newRow = document.createElement('tr');
+                board.appendChild(newRow);
+
+                if (board.childElementCount == 1) {
+                    for (el of boardLetters) {
+                        let newColumn = document.createElement('td');
+                        newColumn.innerHTML = el;
+                        newColumn.style = 'text-align: center';
+                        newRow.appendChild(newColumn)
+                    }
+
+                } else {
+                    for (let column = 0; column <= 8; column++) {
+                        let newColumn = document.createElement('td');
+
+                        if (newRow.childElementCount == 0) {
+                            newColumn.innerHTML = boardNumber;
+                            newColumn.style = "text-align: center";
+                            boardNumber += 1
+                        } else if (oddOrEven % 2 == 0) {
+                            newColumn.style = blackCell
+                        } else {
+                            newColumn.style = whiteCell
+                        };
+
+                        newRow.appendChild(newColumn);
+
+                        oddOrEven += 1
+                    };
+                }
+            }
+        }
+        makeBoard()
+    </script>
+</body>
+
+</html>
