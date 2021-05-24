@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="basketElems"></div>
+
+    <script>
+        const basket = {
+            basketElems: document.querySelector(".basketElems"),
+            owner: 'Alex',
+            products: [],
+
+            basketInit() {
+                this.setBasketStatus()
+            },
+
+            setBasketStatus() {
+                if (this.products.length > 0) {
+                    this.basketElems.insertAdjacentHTML('beforeend', `В корзине ${this.products.length} товара(ов) на сумму ${this.countPrice()} рублей`)
+                } else {
+                    this.basketElems.insertAdjacentHTML('Корзина пуста')
+                }
+            },
+
+            putProduct(item, amount = 1) {
+                item.amount = amount;
+                this.products.push(item)
+            },
+
+            countPrice() {
+                var fullPrice = 0;
+                for (el of this.products) {
+                    itemPrice = el.price * el.amount;
+                    fullPrice += itemPrice
+                };
+                return fullPrice
+            }
+        };
+
+        function createProduct(name, price) {
+            const product = {
+                name: name,
+                price: price,
+            };
+
+            return product
+        };
+
+        product1 = createProduct('Монитор', 10000);
+        product2 = createProduct('Клавиатура', 2000);
+        basket.putProduct(product1);
+        basket.putProduct(product2, 3);
+
+        console.log(basket.countPrice())
+
+        basket.basketInit()
+
+    </script>
+</body>
+
+</html>
